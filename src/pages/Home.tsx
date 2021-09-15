@@ -13,14 +13,11 @@ import BookmarkBorderOutlinedIcon from '@material-ui/icons/BookmarkBorderOutline
 import ViewListOutlinedIcon from '@material-ui/icons/ViewListOutlined';
 import GroupOutlinedIcon from '@material-ui/icons/GroupOutlined';
 
-import ChatBubbleOutlineRoundedIcon from '@material-ui/icons/ChatBubbleOutlineRounded';
-import RepeatRoundedIcon from '@material-ui/icons/RepeatRounded';
-import LikeIcon from '@material-ui/icons/FavoriteBorderRounded';
-import ShareIcon from '@material-ui/icons/SubdirectoryArrowRightOutlined';
 
 import { grey } from '@material-ui/core/colors'
+import { TweetComponent } from '../components/Tweet';
 
-const useHomeStyles = makeStyles(() => ({
+export const useHomeStyles = makeStyles(() => ({
     wrapper: {
         height: '100vh'
     },
@@ -72,20 +69,20 @@ const useHomeStyles = makeStyles(() => ({
     tweetItem: {
         borderLeft: '0',
         borderRight: '0',
-        borderTop: "0",
+        borderTop: '0',
         padding: '5px 10px',
         marginTop: 5,
         cursor: 'pointer',
-        '&:hover':{
+        '&:hover': {
             backgroundColor: 'rgb(245, 248, 250)',
-        }
+        },
     },
     tweetFooter: {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        width: 450
-    }
+        width: 450,
+    },
 }))
 
 const SearchTextField = withStyles(() =>
@@ -170,52 +167,10 @@ export const Home = () => {
                                 <FlareIcon className={classes.sideMenuListItemIcon} />
                             </IconButton>
                         </Paper>
-                        <Paper
-                            variant="outlined"
-                            className={classes.tweetItem}
-                            // className={classNames(classes.tweetItem, classes.twittsWrapper)}
-                        >
-                            <Grid container spacing={2}>
-                                <Grid item xs={1}>
-                                    <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-                                </Grid>
-                                <Grid item xs={11}>
-                                    <Typography>
-                                        <b>Mary Betsy</b>
-                                    </Typography>
-                                    <Typography>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, incidunt magnam! Et odit iste cumque vero fuga temporibus, labore ducimus dolorum reiciendis quam suscipit repellendus nostrum fugit voluptate natus cum!
-                                    </Typography>
-                                    <div className={classes.tweetFooter}>
-                                        <div>
-                                            <IconButton aria-label="" >
-                                                <ChatBubbleOutlineRoundedIcon />
-                                            </IconButton>
-                                            <span>1</span>
-                                        </div>
-                                        <div>
-                                            <IconButton aria-label="" >
-                                                <RepeatRoundedIcon />
-                                            </IconButton>
-                                            <span>1</span>
-                                        </div>
-
-                                        <div>
-                                            <IconButton aria-label="" >
-                                                <LikeIcon />
-                                            </IconButton>
-                                            <span>1</span>
-                                        </div>
-                                        <div>
-                                            <IconButton aria-label="" >
-                                                <ShareIcon />
-                                            </IconButton>
-                                            <span>1</span>
-                                        </div>
-                                    </div>
-                                </Grid>
-                            </Grid>
-                        </Paper>
+                        <TweetComponent
+                            text='Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, libero ipsum nobis sint, quaerat repellendus tempore praesentium fugiat laudantium, eligendi nisi maxime molestias dicta voluptatibus officiis iste totam magnam. Culpa.'
+                            user={{ fullName: 'Eugene Galinevsky', userName: 'Egalinevsky', avatarUrl: 'fefef' }}
+                            classes={classes} />
                     </Paper>
                 </Grid>
                 <Grid item xs={3}>
