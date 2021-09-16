@@ -14,6 +14,7 @@ import ChatBubbleOutlineRoundedIcon from '@material-ui/icons/ChatBubbleOutlineRo
 import RepeatRoundedIcon from '@material-ui/icons/RepeatRounded';
 import LikeIcon from '@material-ui/icons/FavoriteBorderRounded';
 import ShareIcon from '@material-ui/icons/SubdirectoryArrowRightOutlined';
+import MoreHorizOutlinedIcon from '@material-ui/icons/MoreHorizOutlined';
 import Avatar from '@material-ui/core/Avatar';
 import { useHomeStyles } from '../../pages/Home';
 
@@ -37,12 +38,17 @@ export const TweetComponent: React.FC<TweetProps> = ({ text, user, classes }: Tw
     >
       <Grid container spacing={2}>
         <Grid item xs={1}>
-          <Avatar alt="Remy Sharp" src={user.avatarUrl} />
+          <Avatar alt="Remy Sharp" src={user.avatarUrl} className={classes.avatar} />
         </Grid>
         <Grid item xs={11}>
-          <Typography>
-            <b>{user.fullName}</b> @{user.userName}
-          </Typography>
+          <div className={classes.tweetTitle}>
+            <Typography>
+              <b>{user.fullName}</b> @{user.userName} 1ч
+            </Typography>
+            <IconButton color="primary" aria-label="">
+              <MoreHorizOutlinedIcon className={classes.settingTweet} />
+            </IconButton>
+          </div>
           <Typography>
             {text}
           </Typography>
