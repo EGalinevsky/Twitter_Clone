@@ -1,9 +1,10 @@
 import React from 'react'
-import { Grid, Paper, IconButton, Typography, makeStyles, Container, TextField, withStyles, createStyles } from '@material-ui/core'
+import { Grid, Paper, IconButton, Typography, makeStyles, Container, withStyles, createStyles } from '@material-ui/core'
 import InputBase from '@material-ui/core/InputBase';
-import Avatar from '@material-ui/core/Avatar';
-import classNames from 'classnames'
 import FlareIcon from '@material-ui/icons/Flare';
+import GroupOutlinedIcon from '@material-ui/icons/GroupOutlined';
+import Input from '@mui/material/Input';
+import InputLabel from '@mui/material/InputLabel';
 
 
 import { grey } from '@material-ui/core/colors'
@@ -28,7 +29,7 @@ export const useHomeStyles = makeStyles((theme) => ({
     sideMenu: {
         display: 'flex',
         flexDirection: 'column',
-        height: '100vh',
+        height: '98vh',
         justifyContent: 'space-between'
     },
     sideMenuListItem: {
@@ -105,8 +106,6 @@ export const useHomeStyles = makeStyles((theme) => ({
     },
     tweetFooter: {
         display: 'flex',
-        position: 'relative',
-        left: -10,
         alignItems: 'center',
         justifyContent: 'space-between',
         width: 450,
@@ -173,22 +172,16 @@ export const Home = () => {
                         </Paper>
                         <TweetComponent
                             text='Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, libero ipsum nobis sint, quaerat repellendus tempore praesentium fugiat laudantium, eligendi nisi maxime molestias dicta voluptatibus officiis iste totam magnam. Culpa.'
-                            user={{ fullName: 'Eugene Galinevsky', userName: 'Egalinevsky', avatarUrl: 'https://www.urank.ru/news/topicimage/n1/256120/' }}
+                            user={{ fullName: 'Vito Andolini Corleone', userName: 'The_Godfather', avatarUrl: 'https://img.funpinpin.com/grem/uploads/2021/05/f34d9bd7fe4a6e3cac92a51a7a7bc9c4.jpg' }}
                             classes={classes} />
                     </Paper>
                 </Grid>
                 <Grid item xs={3}>
                     <SearchTextField
                         placeholder="Поиск по Твиттеру"
-                        // InputProps={{
-                        //     startAdornment: (
-                        //         <InputAdornment position="start">
-                        //             <SearchIcon />
-                        //         </InputAdornment>
-                        //     ),
-                        // }}
                         fullWidth
-                    />
+                    >
+                    </SearchTextField>
                 </Grid>
             </Grid>
         </Container>

@@ -14,7 +14,8 @@ import ViewListOutlinedIcon from '@material-ui/icons/ViewListOutlined';
 import GroupOutlinedIcon from '@material-ui/icons/GroupOutlined';
 import Avatar from '@material-ui/core/Avatar';
 import MoreHorizOutlinedIcon from '@material-ui/icons/MoreHorizOutlined';
-
+import Hidden from '@material-ui/core/Hidden';
+import CreateIcon from '@material-ui/icons/Create';
 import { useHomeStyles } from '../../pages/Home';
 
 interface SideMenuProps {
@@ -36,62 +37,85 @@ export const SideMenu: React.FC<SideMenuProps> = ({ classes, userFullName, userN
                 <li className={classes.sideMenuListItem}>
                     <div>
                         <HomeIcon className={classes.sideMenuListItemIcon} />
-                        <Typography className={classes.sideMenuListItemLabel} variant="h6">
-                            Главная
-                        </Typography>
+                        <Hidden smDown>
+                            <Typography className={classes.sideMenuListItemLabel} variant="h6">
+                                Главная
+                            </Typography>
+                        </Hidden>
                     </div>
                 </li>
                 <li className={classes.sideMenuListItem}>
                     <div>
                         <SearchIcon className={classes.sideMenuListItemIcon} />
-                        <Typography className={classes.sideMenuListItemLabel} variant="h6">
-                            Поиск
-                        </Typography>
+                        <Hidden smDown>
+                            <Typography className={classes.sideMenuListItemLabel} variant="h6">
+                                Поиск
+                            </Typography>
+                        </Hidden>
                     </div>
                 </li>
                 <li className={classes.sideMenuListItem}>
                     <div>
                         <NotificationsNoneIcon className={classes.sideMenuListItemIcon} />
-                        <Typography className={classes.sideMenuListItemLabel} variant="h6">
-                            Уведомление
-                        </Typography>
+                        <Hidden smDown>
+                            <Typography className={classes.sideMenuListItemLabel} variant="h6">
+                                Уведомление
+                            </Typography>
+                        </Hidden>
                     </div>
                 </li>
                 <li className={classes.sideMenuListItem}>
                     <div>
                         <EmailOutlinedIcon className={classes.sideMenuListItemIcon} />
-                        <Typography className={classes.sideMenuListItemLabel} variant="h6">
-                            Сообщение
-                        </Typography>
+                        <Hidden smDown>
+                            <Typography className={classes.sideMenuListItemLabel} variant="h6">
+                                Сообщение
+                            </Typography>
+                        </Hidden>
                     </div>
                 </li>
                 <li className={classes.sideMenuListItem}>
                     <div>
                         <BookmarkBorderOutlinedIcon className={classes.sideMenuListItemIcon} />
-                        <Typography className={classes.sideMenuListItemLabel} variant="h6">
-                            Закладки
-                        </Typography>
+                        <Hidden smDown>
+                            <Typography className={classes.sideMenuListItemLabel} variant="h6">
+                                Закладки
+                            </Typography>
+                        </Hidden>
                     </div>
                 </li>
                 <li className={classes.sideMenuListItem}>
                     <div>
                         <ViewListOutlinedIcon className={classes.sideMenuListItemIcon} />
-                        <Typography className={classes.sideMenuListItemLabel} variant="h6">
-                            Список
-                        </Typography>
+                        <Hidden smDown>
+                            <Typography className={classes.sideMenuListItemLabel} variant="h6">
+                                Список
+                            </Typography>
+                        </Hidden>
                     </div>
                 </li>
                 <li className={classes.sideMenuListItem}>
                     <div>
                         <GroupOutlinedIcon className={classes.sideMenuListItemIcon} />
-                        <Typography className={classes.sideMenuListItemLabel} variant="h6">
-                            Профиль
-                        </Typography>
+                        <Hidden smDown>
+                            <Typography className={classes.sideMenuListItemLabel} variant="h6">
+                                Профиль
+                            </Typography>
+                        </Hidden>
                     </div>
                 </li>
                 <li className={classes.sideMenuListItem}>
-                    <Button className={classes.btnTweet} color="primary" variant="contained" fullWidth>
-                        Твитнуть
+                    <Button
+                        className={classes.btnTweet}
+                        color="primary"
+                        variant="contained"
+                        fullWidth>
+                        <Hidden smDown>
+                            Твитнуть
+                        </Hidden>
+                        <Hidden mdUp>
+                            <CreateIcon />
+                        </Hidden>
                     </Button>
                 </li>
                 {/* <li className={classes.sideMenuListItem}>

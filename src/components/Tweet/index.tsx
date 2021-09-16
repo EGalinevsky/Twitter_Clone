@@ -54,27 +54,27 @@ export const TweetComponent: React.FC<TweetProps> = ({ text, user, classes }: Tw
           </Typography>
           <div className={classes.tweetFooter}>
             <div>
-              <IconButton color="primary" aria-label="">
-                <ChatBubbleOutlineRoundedIcon />
+              <IconButton color="primary" aria-label="" size="small">
+                <ChatBubbleOutlineRoundedIcon fontSize="inherit" />
               </IconButton>
               <span>1</span>
             </div>
             <div>
-              <IconButton aria-label="">
-                <RepeatRoundedIcon />
+              <IconButton size="small" aria-label="">
+                <RepeatRoundedIcon fontSize="inherit" />
               </IconButton>
               <span>1</span>
             </div>
 
             <div>
-              <IconButton aria-label="">
-                <LikeIcon />
+              <IconButton size="small" aria-label="">
+                <LikeIcon fontSize="inherit" />
               </IconButton>
               <span>1</span>
             </div>
             <div>
-              <IconButton aria-label="">
-                <ShareIcon />
+              <IconButton size="small" aria-label="">
+                <ShareIcon fontSize="inherit" />
               </IconButton>
               <span>1</span>
             </div>
