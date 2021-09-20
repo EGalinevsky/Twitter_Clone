@@ -111,7 +111,7 @@ export const SideMenu: React.FC<SideMenuProps> = ({ classes, userFullName, userN
                         variant="contained"
                         fullWidth>
                         <Hidden smDown>
-                            Твитнуть
+                            Твитнуть1
                         </Hidden>
                         <Hidden mdUp>
                             <CreateIcon />
