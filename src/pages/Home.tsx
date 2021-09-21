@@ -1,10 +1,11 @@
 import React from 'react'
-import { Grid, Paper, IconButton, Typography, makeStyles, Container, withStyles, createStyles } from '@material-ui/core'
+import { Grid, Paper, IconButton, Typography, makeStyles, Container, withStyles, TextField } from '@material-ui/core'
 import InputBase from '@material-ui/core/InputBase';
 import FlareIcon from '@material-ui/icons/Flare';
 import GroupOutlinedIcon from '@material-ui/icons/GroupOutlined';
 import Input from '@mui/material/Input';
 import InputLabel from '@mui/material/InputLabel';
+import classNames from 'classnames'
 
 import SearchIcon from '@material-ui/icons/SearchOutlined';
 import PersonAddIcon from '@material-ui/icons/PersonAddOutlined'
@@ -37,7 +38,7 @@ export const useHomeStyles = makeStyles((theme) => ({
         listStyle: 'none',
         padding: 0,
         margin: 0,
-        maxWidth: 230 
+        maxWidth: 230
     },
     sideMenu: {
         display: 'flex',
@@ -71,7 +72,7 @@ export const useHomeStyles = makeStyles((theme) => ({
     sideMenuListItemIcon: {
         fontSize: 26,
     },
-    twittsWrapper: {
+    tweetsWrapper: {
         borderRadius: 0,
         height: '100%',
         borderTop: "0",
@@ -79,10 +80,11 @@ export const useHomeStyles = makeStyles((theme) => ({
     },
     avatar: {
         marginTop: 5,
+        marginRight: 15,
         width: 50,
         height: 50
     },
-    twittsHeader: {
+    tweetsHeader: {
         borderLeft: '0',
         borderRight: '0',
         display: 'flex',
@@ -115,7 +117,7 @@ export const useHomeStyles = makeStyles((theme) => ({
         display: 'flex',
         borderLeft: '0',
         borderRight: '0',
-        borderTop: '0',
+        // borderTop: '0',
         padding: '5px 10px',
         marginTop: 5,
         cursor: 'pointer',
@@ -149,45 +151,175 @@ export const useHomeStyles = makeStyles((theme) => ({
     myFullname: {
         fontSize: 12,
         fontWeight: 100,
+    },
+    rightSide: {
+        paddingTop: 20,
+        position: 'sticky',
+        top: 0,
+    },
+    rightSideBlock: {
+        backgroundColor: '#f5f8fa',
+        borderRadius: 15,
+        marginTop: 20,
+        '& .MuiList-root': {
+            paddingTop: 0,
+        }
+    },
+    rightSideBlockHeader: {
+        borderTop: 0,
+        borderLeft: 0,
+        borderRight: 0,
+        backgroundColor: 'transparent',
+        padding: '13px 18px',
+        '& b': {
+            fontSize: 20,
+            fontWeight: 800,
+        }
+    },
+    rightSideBlockItem: {
+        cursor: 'pointer',
+        '& .MuiTypography-body1': {
+            fontWeight: 700
+        },
+        '& .MuiListItemAvatar-root': {
+            minWidth: 50,
+        },
+        '& .MuiListItemText-root': {
+            margin: 0,
+        },
+        '&:hover': {
+            backgroundColor: '#edf3f6',
+        }
+    },
+    addForm: {
+        padding: 20,
+        marginBottom: 5
+    },
+    addFormBody: {
+        display: 'flex',
+        width: '100%'
+    },
+    addFormBottom: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+    },
+    addFormBottomActions: {
+        marginTop: 10,
+        paddingLeft: 70,
+    },
+    addFormTextarea: {
+        width: '100%',
+        border: 0,
+        fontSize: 20,
+        outline: 'none',
+        fontFamily: 'inherit',
+        resize: 'none',
+    },
+    addFormBottomLine: {
+        height: 12,
+        backgroundColor: '#E6Ecf0'
+    },
+    addFormCircleProgress: {
+        position: 'relative',
+        width: 20,
+        height: 20,
+        margin: '0 10px',
+        '& .MuiCircularProgress-root': {
+            position: 'absolute'
+        }
+    },
+    addFormBottomRight: {
+        display: 'flex',
+        alignItems: 'center',
     }
 }))
 
-const SearchTextField = withStyles(() =>
+const SearchTextField = withStyles((theme) =>
 ({
     root: {
-        borderRadius: 30,
-        backgroundColor: '#E6ECF0',
-        padding: 0,
-        paddingLeft: 10,
-        height: 45,
+        '& .MuiOutlinedInput-root': {
+            borderRadius: 30,
+            backgroundColor: '#E6ECF0',
+            padding: 0,
+            paddingLeft: 15,
+            '&.Mui-focused': {
+                backgroundColor: '#fff',
+                '& fieldset': { borderWidth: 1, borderColor: 'blue' },
+                '& svg path': {
+                    fill: 'blue'
+                }
+            },
+            '&:hover': {
+                '& fieldset': {
+                    borderColor: 'transparent'
+                },
+            },
+            '& fieldset': {
+                borderColor: 'transparent',
+                borderWidht: 1
+            },
+        },
+        '& .MuiOutlinedInput-input': {
+            padding: '12px 14px 14px 5px',
+        },
+
     }
 }),
-)(InputBase);
+)(TextField);
 
-export const Home = () => {
+// const TextLimitProgress = withStyles(()=> ({}))(CircularProgress)
+
+export const Home = (): React.ReactElement => {
     const classes = useHomeStyles();
 
     return (
         <Container className={classes.wrapper} maxWidth="lg">
             <Grid container spacing={3}>
                 <Grid item xs={2}>
-                    <SideMenu classes={classes}
+                    <SideMenu
+                        classes={classes}
                         userAvatar='https://www.urank.ru/news/topicimage/n1/256120/'
                         userFullName='Eugene Galinevksy'
                         userName='Egalinevsky' />
                 </Grid>
                 <Grid item xs={7}>
                     <Paper
-                        className={classes.twittsWrapper}
+                        className={classes.tweetsWrapper}
                         style={{ height: '100%' }}
                         variant="outlined">
                         <Paper
-                            className={classes.twittsHeader}
+                            className={classes.tweetsHeader}
                             variant="outlined">
                             <Typography variant="h6">Главная</Typography>
                             <IconButton aria-label="" >
                                 <FlareIcon className={classes.sideMenuListItemIcon} />
                             </IconButton>
+                        </Paper>
+                        <Paper>
+                            <div className={classes.addForm}>
+                                <div className={classes.addFormBody}>
+                                    <Avatar
+                                        className={classes.avatar}
+                                        alt={'Аватарка пользователя UserAvatar'}
+                                        src="https://www.urank.ru/news/topicimage/n1/256120/"
+                                    />
+                                    <TextareaAutosize
+                                        className={classes.addFormTextarea}
+                                        placeholder='Что происходит ?'
+                                    />
+                                </div>
+                                <div className={classes.addFormBottom}>
+                                    <div className={classNames(classes.tweetFooter, classes.addFormBottomActions)}>
+                                        <IconButton color="primary">
+                                            <ImageOutlinedIcon style={{ fontSize: 26 }} />
+                                        </IconButton>
+                                        <IconButton color="primary">
+                                            <EmojiIcon style={{ fontSize: 26 }} />
+                                        </IconButton>
+                                    </div>
+                                </div>
+                            </div>
                         </Paper>
                         <TweetComponent
                             text='Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, libero ipsum nobis sint, quaerat repellendus tempore praesentium fugiat laudantium, eligendi nisi maxime molestias dicta voluptatibus officiis iste totam magnam. Culpa.'

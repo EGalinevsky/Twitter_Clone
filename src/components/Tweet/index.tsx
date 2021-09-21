@@ -40,17 +40,17 @@ export const TweetComponent: React.FC<TweetProps> = ({ text, user, classes }: Tw
         src={user.avatarUrl}
         className={classes.avatar}
       />
-      <div className={classes.tweetTitle}>
-        <Typography>
-          <b>{user.fullName}</b>
-          <span className={classes.tweetUserName}>@{user.userName}</span>-
-          <span className={classes.tweetUserName}>1 ч</span>
-        </Typography>
-        <IconButton color="primary" aria-label="">
-          <MoreHorizOutlinedIcon className={classes.settingTweet} />
-        </IconButton>
-      </div> 
       <div>
+        <div className={classes.tweetTitle}>
+          <Typography>
+            <b>{user.fullName}</b>
+            <span className={classes.tweetUserName}>@{user.userName}</span>-
+            <span className={classes.tweetUserName}>1 ч</span>
+          </Typography>
+          <IconButton color="primary" aria-label="">
+            <MoreHorizOutlinedIcon className={classes.settingTweet} />
+          </IconButton>
+        </div>
         <Typography>
           {text}
         </Typography>
@@ -82,7 +82,6 @@ export const TweetComponent: React.FC<TweetProps> = ({ text, user, classes }: Tw
           </div>
         </div>
       </div>
-
     </Paper>
   );
 };
