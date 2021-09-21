@@ -34,53 +34,55 @@ export const TweetComponent: React.FC<TweetProps> = ({ text, user, classes }: Tw
     <Paper
       variant="outlined"
       className={classes.tweetItem}
-    // className={classNames(classes.tweetItem, classes.twittsWrapper)}
     >
-      <Grid container spacing={2}>
-        <Grid item xs={1}>
-          <Avatar alt="Remy Sharp" src={user.avatarUrl} className={classes.avatar} />
-        </Grid>
-        <Grid item xs={11}>
-          <div className={classes.tweetTitle}>
-            <Typography>
-              <b>{user.fullName}</b> @{user.userName} 1ч
-            </Typography>
-            <IconButton color="primary" aria-label="">
-              <MoreHorizOutlinedIcon className={classes.settingTweet} />
+      <Avatar
+        alt="Remy Sharp"
+        src={user.avatarUrl}
+        className={classes.avatar}
+      />
+      <div className={classes.tweetTitle}>
+        <Typography>
+          <b>{user.fullName}</b>
+          <span className={classes.tweetUserName}>@{user.userName}</span>-
+          <span className={classes.tweetUserName}>1 ч</span>
+        </Typography>
+        <IconButton color="primary" aria-label="">
+          <MoreHorizOutlinedIcon className={classes.settingTweet} />
+        </IconButton>
+      </div> 
+      <div>
+        <Typography>
+          {text}
+        </Typography>
+        <div className={classes.tweetFooter}>
+          <div>
+            <IconButton color="primary" aria-label="" size="small">
+              <ChatBubbleOutlineRoundedIcon fontSize="inherit" />
             </IconButton>
+            <span>1</span>
           </div>
-          <Typography>
-            {text}
-          </Typography>
-          <div className={classes.tweetFooter}>
-            <div>
-              <IconButton color="primary" aria-label="" size="small">
-                <ChatBubbleOutlineRoundedIcon fontSize="inherit" />
-              </IconButton>
-              <span>1</span>
-            </div>
-            <div>
-              <IconButton size="small" aria-label="">
-                <RepeatRoundedIcon fontSize="inherit" />
-              </IconButton>
-              <span>1</span>
-            </div>
+          <div>
+            <IconButton size="small" aria-label="">
+              <RepeatRoundedIcon fontSize="inherit" />
+            </IconButton>
+            <span>2</span>
+          </div>
 
-            <div>
-              <IconButton size="small" aria-label="">
-                <LikeIcon fontSize="inherit" />
-              </IconButton>
-              <span>1</span>
-            </div>
-            <div>
-              <IconButton size="small" aria-label="">
-                <ShareIcon fontSize="inherit" />
-              </IconButton>
-              <span>1</span>
-            </div>
+          <div>
+            <IconButton size="small" aria-label="">
+              <LikeIcon fontSize="inherit" />
+            </IconButton>
+            <span> </span>
           </div>
-        </Grid>
-      </Grid>
+          <div>
+            <IconButton size="small" aria-label="">
+              <ShareIcon fontSize="inherit" />
+            </IconButton>
+            <span>1</span>
+          </div>
+        </div>
+      </div>
+
     </Paper>
   );
 };

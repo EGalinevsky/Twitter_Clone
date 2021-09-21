@@ -6,10 +6,20 @@ import GroupOutlinedIcon from '@material-ui/icons/GroupOutlined';
 import Input from '@mui/material/Input';
 import InputLabel from '@mui/material/InputLabel';
 
+import SearchIcon from '@material-ui/icons/SearchOutlined';
+import PersonAddIcon from '@material-ui/icons/PersonAddOutlined'
+import ImageOutlinedIcon from '@material-ui/icons/ImageOutlined'
+import EmojiIcon from '@material-ui/icons/SentimentSatisfiedOutlined'
 
 import { grey } from '@material-ui/core/colors'
 import { TweetComponent } from '../components/Tweet';
 import { SideMenu } from '../components/SideMenu';
+import ListItem from '@material-ui/core/ListItem/ListItem'
+import Divider from '@material-ui/core/Divider/Divider'
+import Avatar from '@material-ui/core/Avatar';
+import { ListItemText, ListItemAvatar, List, Button } from '@material-ui/core';
+import { TextareaAutosize } from '@material-ui/core';
+import CircularProgress from '@material-ui/core/CircularProgress/CircularProgress';
 
 export const useHomeStyles = makeStyles((theme) => ({
     wrapper: {
@@ -22,9 +32,12 @@ export const useHomeStyles = makeStyles((theme) => ({
         fontSize: 36,
     },
     sideMenuLIst: {
+        position: 'sticky',
+        top: 0,
         listStyle: 'none',
         padding: 0,
         margin: 0,
+        maxWidth: 230 
     },
     sideMenu: {
         display: 'flex',
@@ -90,10 +103,16 @@ export const useHomeStyles = makeStyles((theme) => ({
     settingTweet: {
         fontSize: 16
     },
+    tweetUserName: {
+        color: '#8e99a1',
+        marginLeft: '10px',
+        fontWeight: 200,
+    },
     tweetsUserName: {
         color: grey[500],
     },
     tweetItem: {
+        display: 'flex',
         borderLeft: '0',
         borderRight: '0',
         borderTop: '0',
@@ -134,15 +153,15 @@ export const useHomeStyles = makeStyles((theme) => ({
 }))
 
 const SearchTextField = withStyles(() =>
-    createStyles({
-        input: {
-            borderRadius: 30,
-            backgroundColor: '#E6ECF0',
-            padding: 0,
-            paddingLeft: 10,
-            height: 45,
-        }
-    }),
+({
+    root: {
+        borderRadius: 30,
+        backgroundColor: '#E6ECF0',
+        padding: 0,
+        paddingLeft: 10,
+        height: 45,
+    }
+}),
 )(InputBase);
 
 export const Home = () => {
