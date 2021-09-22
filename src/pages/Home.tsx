@@ -1,26 +1,12 @@
 import React from 'react'
 import { Grid, Paper, IconButton, Typography, makeStyles, Container, withStyles, TextField, InputAdornment } from '@material-ui/core'
-import InputBase from '@material-ui/core/InputBase';
 import FlareIcon from '@material-ui/icons/Flare';
-import GroupOutlinedIcon from '@material-ui/icons/GroupOutlined';
-import Input from '@mui/material/Input';
-import InputLabel from '@mui/material/InputLabel';
-import classNames from 'classnames'
-
-import SearchIcon from '@material-ui/icons/SearchOutlined';
-import PersonAddIcon from '@material-ui/icons/PersonAddOutlined'
-import ImageOutlinedIcon from '@material-ui/icons/ImageOutlined'
-import EmojiIcon from '@material-ui/icons/SentimentSatisfiedOutlined'
 
 import { grey } from '@material-ui/core/colors'
 import { TweetComponent } from '../components/Tweet';
 import { SideMenu } from '../components/SideMenu';
-import ListItem from '@material-ui/core/ListItem/ListItem'
-import Divider from '@material-ui/core/Divider/Divider'
-import Avatar from '@material-ui/core/Avatar';
-import { ListItemText, ListItemAvatar, List, Button } from '@material-ui/core';
-import { TextareaAutosize } from '@material-ui/core';
-import CircularProgress from '@material-ui/core/CircularProgress/CircularProgress';
+import { AddTweet } from '../components/AddTweet';
+import { RightSide } from '../components/RightSide';
 
 export const useHomeStyles = makeStyles((theme) => ({
     wrapper: {
@@ -206,8 +192,8 @@ export const useHomeStyles = makeStyles((theme) => ({
     },
     addFormBottomActions: {
         display: 'flex',
-        width: '10 %',
-        justifyContent: 'space-beetwen',
+        width: 70,
+        justifyContent: 'space-between',
         marginTop: 10,
         fontSize: 10,
         paddingLeft: 70,
@@ -239,7 +225,7 @@ export const useHomeStyles = makeStyles((theme) => ({
     }
 }))
 
-const SearchTextField = withStyles((theme) =>
+export const SearchTextField = withStyles((theme) =>
 ({
     root: {
         '& .MuiOutlinedInput-root': {
@@ -250,9 +236,9 @@ const SearchTextField = withStyles((theme) =>
             paddingLeft: 15,
             '&.Mui-focused': {
                 backgroundColor: '#fff',
-                '& fieldset': { borderWidth: 1, borderColor: 'rgb(26, 145, 218)' },
+                '& fieldset': { borderWidth: 1, borderColor: theme.palette.primary },
                 '& svg path': {
-                    fill: 'rgb(26, 145, 218)'
+                    fill: theme.palette.primary
                 }
             },
             '&:hover': {
@@ -301,73 +287,19 @@ export const Home = (): React.ReactElement => {
                                 <FlareIcon className={classes.sideMenuListItemIcon} />
                             </IconButton>
                         </Paper>
-                        <Paper>
-                            <div className={classes.addForm}>
-                                <div className={classes.addFormBody}>
-                                    <Avatar
-                                        className={classes.avatar}
-                                        alt={'Аватарка пользователя UserAvatar'}
-                                        src="https://www.urank.ru/news/topicimage/n1/256120/"
-                                    />
-                                    <TextareaAutosize
-                                        className={classes.addFormTextarea}
-                                        placeholder='Что происходит ?'
-                                    />
-                                </div>
-                                <div className={classes.addFormBottom}>
-                                    <div className={classNames(classes.tweetFooter, classes.addFormBottomActions)}>
-                                        <IconButton size="small" color="primary">
-                                            <ImageOutlinedIcon style={{ fontSize: 20 }} />
-                                        </IconButton>
-                                        <IconButton size="small" color="primary">
-                                            <EmojiIcon style={{ fontSize: 20 }} />
-                                        </IconButton>
-                                    </div>
-                                    <div className={classes.addFormBottomRight}>
-                                        <span>280</span>
-                                        <div className={classes.addFormCircleProgress}>
-                                            <CircularProgress
-                                                variant="static"
-                                                size={20}
-                                                thickness={4}
-                                                value={18}
-                                            />
-                                            <CircularProgress
-                                                style={{ color: 'rgba(0,0,0,0.1)' }}
-                                                variant="static"
-                                                thickness={4}
-                                                value={100}
-                                                size={20}
-                                            />
-                                        </div>
-                                        <Button color="primary" variant="contained">
-                                            Твитнуть
-                                        </Button>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </Paper>
+                        <AddTweet classes={classes} />
                         <TweetComponent
                             text='Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, libero ipsum nobis sint, quaerat repellendus tempore praesentium fugiat laudantium, eligendi nisi maxime molestias dicta voluptatibus officiis iste totam magnam. Culpa.'
-                            user={{ fullName: 'Vito Andolini Corleone', userName: 'The_Godfather', avatarUrl: 'https://img.funpinpin.com/grem/uploads/2021/05/f34d9bd7fe4a6e3cac92a51a7a7bc9c4.jpg' }}
+                            user={{
+                                fullName: 'Vito Andolini Corleone',
+                                userName: 'The_Godfather',
+                                avatarUrl: 'https://img.funpinpin.com/grem/uploads/2021/05/f34d9bd7fe4a6e3cac92a51a7a7bc9c4.jpg'
+                            }}
                             classes={classes} />
                     </Paper>
                 </Grid>
                 <Grid item xs={3}>
-                    <SearchTextField
-                        variant="outlined"
-                        placeholder="Поиск по Твиттеру"
-                        InputProps={{
-                            startAdornment: (
-                                <InputAdornment position="start">
-                                    <SearchIcon />
-                                </InputAdornment>
-                            ),
-                        }}
-                        fullWidth
-                    >
-                    </SearchTextField>
+                    <RightSide classes={classes} />
                 </Grid>
             </Grid>
         </Container>
