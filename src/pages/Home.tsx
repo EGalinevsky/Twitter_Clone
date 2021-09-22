@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Paper, IconButton, Typography, makeStyles, Container, withStyles, TextField } from '@material-ui/core'
+import { Grid, Paper, IconButton, Typography, makeStyles, Container, withStyles, TextField, InputAdornment } from '@material-ui/core'
 import InputBase from '@material-ui/core/InputBase';
 import FlareIcon from '@material-ui/icons/Flare';
 import GroupOutlinedIcon from '@material-ui/icons/GroupOutlined';
@@ -205,7 +205,11 @@ export const useHomeStyles = makeStyles((theme) => ({
         alignItems: 'center'
     },
     addFormBottomActions: {
+        display: 'flex',
+        width: '10 %',
+        justifyContent: 'space-beetwen',
         marginTop: 10,
+        fontSize: 10,
         paddingLeft: 70,
     },
     addFormTextarea: {
@@ -241,13 +245,14 @@ const SearchTextField = withStyles((theme) =>
         '& .MuiOutlinedInput-root': {
             borderRadius: 30,
             backgroundColor: '#E6ECF0',
+            marginTop: 5,
             padding: 0,
             paddingLeft: 15,
             '&.Mui-focused': {
                 backgroundColor: '#fff',
-                '& fieldset': { borderWidth: 1, borderColor: 'blue' },
+                '& fieldset': { borderWidth: 1, borderColor: 'rgb(26, 145, 218)' },
                 '& svg path': {
-                    fill: 'blue'
+                    fill: 'rgb(26, 145, 218)'
                 }
             },
             '&:hover': {
@@ -311,13 +316,35 @@ export const Home = (): React.ReactElement => {
                                 </div>
                                 <div className={classes.addFormBottom}>
                                     <div className={classNames(classes.tweetFooter, classes.addFormBottomActions)}>
-                                        <IconButton color="primary">
-                                            <ImageOutlinedIcon style={{ fontSize: 26 }} />
+                                        <IconButton size="small" color="primary">
+                                            <ImageOutlinedIcon style={{ fontSize: 20 }} />
                                         </IconButton>
-                                        <IconButton color="primary">
-                                            <EmojiIcon style={{ fontSize: 26 }} />
+                                        <IconButton size="small" color="primary">
+                                            <EmojiIcon style={{ fontSize: 20 }} />
                                         </IconButton>
                                     </div>
+                                    <div className={classes.addFormBottomRight}>
+                                        <span>280</span>
+                                        <div className={classes.addFormCircleProgress}>
+                                            <CircularProgress
+                                                variant="static"
+                                                size={20}
+                                                thickness={4}
+                                                value={18}
+                                            />
+                                            <CircularProgress
+                                                style={{ color: 'rgba(0,0,0,0.1)' }}
+                                                variant="static"
+                                                thickness={4}
+                                                value={100}
+                                                size={20}
+                                            />
+                                        </div>
+                                        <Button color="primary" variant="contained">
+                                            Твитнуть
+                                        </Button>
+                                    </div>
+
                                 </div>
                             </div>
                         </Paper>
@@ -329,7 +356,15 @@ export const Home = (): React.ReactElement => {
                 </Grid>
                 <Grid item xs={3}>
                     <SearchTextField
+                        variant="outlined"
                         placeholder="Поиск по Твиттеру"
+                        InputProps={{
+                            startAdornment: (
+                                <InputAdornment position="start">
+                                    <SearchIcon />
+                                </InputAdornment>
+                            ),
+                        }}
                         fullWidth
                     >
                     </SearchTextField>
