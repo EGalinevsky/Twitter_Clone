@@ -287,7 +287,9 @@ export const Home = (): React.ReactElement => {
                                 <FlareIcon className={classes.sideMenuListItemIcon} />
                             </IconButton>
                         </Paper>
-                        <AddTweet classes={classes} />
+                        <Paper>
+                            <AddTweet classes={classes} />
+                        </Paper>
                         <TweetComponent
                             text='Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, libero ipsum nobis sint, quaerat repellendus tempore praesentium fugiat laudantium, eligendi nisi maxime molestias dicta voluptatibus officiis iste totam magnam. Culpa.'
                             user={{
