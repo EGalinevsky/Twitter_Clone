@@ -16,10 +16,11 @@ interface AddTweetProps {
 
 export const AddTweet: React.FC<AddTweetProps> = ({ classes }: AddTweetProps): React.ReactElement => {
     const [text, setText] = useState<string>('')
-    const textLimitPercent = text.length / 280 * 100
+    const textLimitPercent = Math.round((text.length / 280) * 100)
+    const maxLength = text.length - 280
 
     const handleChangeTextare = (e: React.FormEvent<HTMLTextAreaElement>) => {
-        if (e.currentTarget) {
+        if (e.currentTarget && textLimitPercent < 100) {
             setText(e.currentTarget.value)
         }
     }
@@ -52,14 +53,14 @@ export const AddTweet: React.FC<AddTweetProps> = ({ classes }: AddTweetProps): R
                 <div className={classes.addFormBottomRight}>
                     {text && (
                         <>
-                            <span > 280</span>
+                            <span >{maxLength}/280</span>
                             <div className={classes.addFormCircleProgress}>
                                 <CircularProgress
                                     variant="static"
                                     size={20}
-                                    thickness={4}
-                                    value={textLimitPercent}
-                                    
+                                    thickness={5}
+                                    value={textLimitPercent > 100 ? 100 : textLimitPercent}
+                                    style={textLimitPercent >= 100 ? { color: 'red' } : undefined}
                                 />
                                 <CircularProgress
                                     style={{ color: 'rgba(0,0,0,0.1)' }}
