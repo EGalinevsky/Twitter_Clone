@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom'
 import { Signin } from './pages/Signin';
-import { Home } from './pages/Home';
+import { Home } from './pages/Home/Home';
 
 function App() {
   return (

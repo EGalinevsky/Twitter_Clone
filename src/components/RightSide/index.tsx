@@ -1,5 +1,4 @@
 import React from 'react'
-import { SearchTextField, useHomeStyles } from '../../pages/Home'
 import { Paper, Typography, InputAdornment } from '@material-ui/core'
 
 import SearchIcon from '@material-ui/icons/SearchOutlined';
@@ -8,6 +7,8 @@ import ListItem from '@material-ui/core/ListItem/ListItem'
 import Divider from '@material-ui/core/Divider/Divider'
 import Avatar from '@material-ui/core/Avatar';
 import PersonAddIcon from '@material-ui/icons/PersonAddOutlined'
+import { useHomeStyles } from '../../pages/Home/theme';
+import { SearchTextField } from '../SearchTextField';
 
 
 interface RightSideProps {

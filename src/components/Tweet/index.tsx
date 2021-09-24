@@ -16,7 +16,7 @@ import LikeIcon from '@material-ui/icons/FavoriteBorderRounded';
 import ShareIcon from '@material-ui/icons/SubdirectoryArrowRightOutlined';
 import MoreHorizOutlinedIcon from '@material-ui/icons/MoreHorizOutlined';
 import Avatar from '@material-ui/core/Avatar';
-import { useHomeStyles } from '../../pages/Home';
+import { useHomeStyles } from '../../pages/Home/theme';
 
 interface TweetProps {
   text: string

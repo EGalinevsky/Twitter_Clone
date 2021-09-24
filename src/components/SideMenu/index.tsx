@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
     IconButton,
     Typography,
@@ -16,7 +16,9 @@ import Avatar from '@material-ui/core/Avatar';
 import MoreHorizOutlinedIcon from '@material-ui/icons/MoreHorizOutlined';
 import Hidden from '@material-ui/core/Hidden';
 import CreateIcon from '@material-ui/icons/Create';
-import { useHomeStyles } from '../../pages/Home';
+import { useHomeStyles } from '../../pages/Home/theme';
+import { ModalBlock } from '../Dialog';
+import { AddTweet } from '../AddTweet';
 
 interface SideMenuProps {
     classes: ReturnType<typeof useHomeStyles>;
@@ -26,6 +28,13 @@ interface SideMenuProps {
 }
 
 export const SideMenu: React.FC<SideMenuProps> = ({ classes, userFullName, userName, userAvatar }: SideMenuProps): React.ReactElement => {
+    const [setVisibleAddTweet, setSetVisibleAddTweet] = useState<boolean>(false)
+    const handleClickOpenAddTweet = () => {
+        setSetVisibleAddTweet(true)
+    }
+    const onCloseAddTweetModal = () => {
+        setSetVisibleAddTweet(false)
+    }
     return (
         <div className={classes.sideMenu}>
             <ul className={classes.sideMenuLIst}>
@@ -106,6 +115,7 @@ export const SideMenu: React.FC<SideMenuProps> = ({ classes, userFullName, userN
                 </li>
                 <li className={classes.sideMenuListItem}>
                     <Button
+                        onClick={handleClickOpenAddTweet}
                         className={classes.btnTweet}
                         color="primary"
                         variant="contained"
@@ -117,10 +127,12 @@ export const SideMenu: React.FC<SideMenuProps> = ({ classes, userFullName, userN
                             <CreateIcon />
                         </Hidden>
                     </Button>
+                    <ModalBlock onClose={onCloseAddTweetModal} visible={setVisibleAddTweet} title="">
+                        <div style={{ width: 560 }}>
+                            <AddTweet maxRows={14} classes={classes} />
+                        </div>
+                    </ModalBlock>
                 </li>
-                {/* <li className={classes.sideMenuListItem}>
-                    
-                </li> */}
             </ul>
             <div className={classes.myItem}>
                 <Avatar alt="Remy Sharp" src={userAvatar} />

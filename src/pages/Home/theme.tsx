@@ -1,12 +1,6 @@
-import React from 'react'
-import { Grid, Paper, IconButton, Typography, makeStyles, Container, withStyles, TextField, InputAdornment } from '@material-ui/core'
-import FlareIcon from '@material-ui/icons/Flare';
-
+import { makeStyles } from "@material-ui/core";
 import { grey } from '@material-ui/core/colors'
-import { TweetComponent } from '../components/Tweet';
-import { SideMenu } from '../components/SideMenu';
-import { AddTweet } from '../components/AddTweet';
-import { RightSide } from '../components/RightSide';
+
 
 export const useHomeStyles = makeStyles((theme) => ({
     wrapper: {
@@ -224,87 +218,3 @@ export const useHomeStyles = makeStyles((theme) => ({
         alignItems: 'center',
     }
 }))
-
-export const SearchTextField = withStyles((theme) =>
-({
-    root: {
-        '& .MuiOutlinedInput-root': {
-            borderRadius: 30,
-            backgroundColor: '#E6ECF0',
-            marginTop: 5,
-            padding: 0,
-            paddingLeft: 15,
-            '&.Mui-focused': {
-                backgroundColor: '#fff',
-                '& fieldset': { borderWidth: 1, borderColor: theme.palette.primary },
-                '& svg path': {
-                    fill: theme.palette.primary
-                }
-            },
-            '&:hover': {
-                '& fieldset': {
-                    borderColor: 'transparent'
-                },
-            },
-            '& fieldset': {
-                borderColor: 'transparent',
-                borderWidht: 1
-            },
-        },
-        '& .MuiOutlinedInput-input': {
-            padding: '12px 14px 14px 5px',
-        },
-
-    }
-}),
-)(TextField);
-
-// const TextLimitProgress = withStyles(()=> ({}))(CircularProgress)
-
-export const Home = (): React.ReactElement => {
-    const classes = useHomeStyles();
-
-    return (
-        <Container className={classes.wrapper} maxWidth="lg">
-            <Grid container spacing={3}>
-                <Grid item xs={2}>
-                    <SideMenu
-                        classes={classes}
-                        userAvatar='https://www.urank.ru/news/topicimage/n1/256120/'
-                        userFullName='Eugene Galinevksy'
-                        userName='Egalinevsky' />
-                </Grid>
-                <Grid item xs={7}>
-                    <Paper
-                        className={classes.tweetsWrapper}
-                        style={{ height: '100%' }}
-                        variant="outlined">
-                        <Paper
-                            className={classes.tweetsHeader}
-                            variant="outlined">
-                            <Typography variant="h6">Главная</Typography>
-                            <IconButton aria-label="" >
-                                <FlareIcon className={classes.sideMenuListItemIcon} />
-                            </IconButton>
-                        </Paper>
-                        <Paper>
-                            <AddTweet classes={classes} />
-                        </Paper>
-                        <TweetComponent
-                            text='Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, libero ipsum nobis sint, quaerat repellendus tempore praesentium fugiat laudantium, eligendi nisi maxime molestias dicta voluptatibus officiis iste totam magnam. Culpa.'
-                            user={{
-                                fullName: 'Vito Andolini Corleone',
-                                userName: 'The_Godfather',
-                                avatarUrl: 'https://img.funpinpin.com/grem/uploads/2021/05/f34d9bd7fe4a6e3cac92a51a7a7bc9c4.jpg'
-                            }}
-                            classes={classes} />
-                    </Paper>
-                </Grid>
-                <Grid item xs={3}>
-                    <RightSide classes={classes} />
-                </Grid>
-            </Grid>
-        </Container>
-    )
-}
-

@@ -6,27 +6,30 @@ import ImageOutlinedIcon from '@material-ui/icons/ImageOutlined';
 import EmojiIcon from '@material-ui/icons/SentimentSatisfiedOutlined';
 import CircularProgress from '@material-ui/core/CircularProgress/CircularProgress';
 import { Button } from '@material-ui/core';
-import { useHomeStyles } from '../../pages/Home';
 import classNames from 'classnames'
-
+import { useHomeStyles } from '../../pages/Home/theme';
 
 interface AddTweetProps {
     classes: ReturnType<typeof useHomeStyles>;
+    maxRows?: number
 }
 
-export const AddTweet: React.FC<AddTweetProps> = ({ classes }: AddTweetProps): React.ReactElement => {
+export const AddTweet: React.FC<AddTweetProps> = ({ classes, maxRows }: AddTweetProps): React.ReactElement => {
     const [text, setText] = useState<string>('')
     const textLimitPercent = Math.round((text.length / 280) * 100)
 
-    const handleChangeTextare = (e: React.FormEvent<HTMLTextAreaElement>) => {
+    const handleChangeTextare = (e: React.FormEvent<HTMLTextAreaElement>): void => {
         if (e.currentTarget && textLimitPercent < 100) {
             setText(e.currentTarget.value)
         }
     }
 
+    const handleClickTweet = (): void => {
+        setText('')
+    }
 
     return (
-        <div className={classes.addForm}>
+        <div >
             <div className={classes.addFormBody}>
                 <Avatar
                     className={classes.avatar}
@@ -38,6 +41,7 @@ export const AddTweet: React.FC<AddTweetProps> = ({ classes }: AddTweetProps): R
                     className={classes.addFormTextarea}
                     placeholder='Что происходит ?'
                     value={text}
+                    maxRows={maxRows}
                 />
             </div>
             <div className={classes.addFormBottom}>
@@ -57,7 +61,7 @@ export const AddTweet: React.FC<AddTweetProps> = ({ classes }: AddTweetProps): R
                                     variant="static"
                                     size={20}
                                     thickness={5}
-                                    value={textLimitPercent > 100 ? 100 : textLimitPercent}
+                                    value={text.length >= 280 ? 100 : textLimitPercent}
                                     style={textLimitPercent >= 100 ? { color: 'red' } : undefined}
                                 />
                                 <CircularProgress
@@ -70,7 +74,10 @@ export const AddTweet: React.FC<AddTweetProps> = ({ classes }: AddTweetProps): R
                             </div>
                         </>
                     )}
-                    <Button color="primary" variant="contained">
+                    <Button
+                        onClick={handleClickTweet}
+                        color="primary"
+                        variant="contained">
                         Твитнуть
                     </Button>
                 </div>
