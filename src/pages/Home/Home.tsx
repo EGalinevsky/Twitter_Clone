@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Grid, Paper, IconButton, Typography, makeStyles, Container, withStyles, TextField, InputAdornment } from '@material-ui/core'
 import FlareIcon from '@material-ui/icons/Flare';
 
@@ -8,11 +8,21 @@ import { SideMenu } from '../../components/SideMenu';
 import { AddTweet } from '../../components/AddTweet';
 import { RightSide } from '../../components/RightSide';
 import { useHomeStyles } from './theme';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchTweets } from '../../store/ducks/tweets/actionCreators';
+import { selectTweets } from '../../store/ducks/tweets/selectors';
 
 // const TextLimitProgress = withStyles(()=> ({}))(CircularProgress)
 
 export const Home = (): React.ReactElement => {
+    const dispatch = useDispatch();
     const classes = useHomeStyles();
+    const tweets = useSelector(selectTweets)
+
+
+    useEffect(() => {
+        dispatch(fetchTweets());
+    }, [])
 
     return (
         <Container className={classes.wrapper} maxWidth="lg">

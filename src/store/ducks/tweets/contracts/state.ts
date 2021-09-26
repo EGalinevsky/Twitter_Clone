@@ -1,6 +1,7 @@
 export enum LoadingState {
   LOADED = 'LOADED',
   ERROR = 'ERROR',
+  LOADING = 'LOADING',
   NEVER = 'NEVER'
 }
 

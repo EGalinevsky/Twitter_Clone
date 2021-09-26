@@ -5,12 +5,16 @@ import { ThemeProvider } from "@material-ui/styles";
 import { theme } from './theme';
 import { BrowserRouter as Router } from 'react-router-dom'
 import './index.css'
+import { Provider } from 'react-redux';
+import { store } from './store/store'
 
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <Router>
-        <App />
+        <Provider store={store}>
+          <App />
+        </Provider>
       </Router>
     </ThemeProvider>
   </React.StrictMode>,
