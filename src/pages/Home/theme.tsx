@@ -12,19 +12,19 @@ export const useHomeStyles = makeStyles((theme) => ({
     logoIcon: {
         fontSize: 36,
     },
-    sideMenuLIst: {
+    sideMenu: {
         position: 'sticky',
         top: 0,
-        listStyle: 'none',
-        padding: 0,
-        margin: 0,
-        maxWidth: 230
-    },
-    sideMenu: {
         display: 'flex',
         flexDirection: 'column',
         height: '98vh',
         justifyContent: 'space-between'
+    },
+    sideMenuLIst: {
+        listStyle: 'none',
+        padding: 0,
+        margin: 0,
+        maxWidth: 230
     },
     sideMenuListItem: {
         '& div': {
@@ -77,6 +77,10 @@ export const useHomeStyles = makeStyles((theme) => ({
             fontWeight: 700,
         }
     },
+    tweetsCentred:{
+        marginTop: 100,
+        textAlign: 'center'
+    },
     tweetTitle: {
         display: 'flex',
         justifyContent: 'space-between',
@@ -97,6 +101,8 @@ export const useHomeStyles = makeStyles((theme) => ({
         display: 'flex',
         borderLeft: '0',
         borderRight: '0',
+        borderTop: '0',
+        borderRadius: '0',
         // borderTop: '0',
         padding: '5px 10px',
         marginTop: 5,
@@ -171,9 +177,16 @@ export const useHomeStyles = makeStyles((theme) => ({
             backgroundColor: '#edf3f6',
         }
     },
+    wrapperaddForm:{
+        borderTop: 0,
+        borderLeft: 0,
+        borderRight: 0,
+        borderRadius: 0
+    },
     addForm: {
         padding: 20,
-        marginBottom: 5
+        marginBottom: 5,
+        borderBottom: 1
     },
     addFormBody: {
         display: 'flex',

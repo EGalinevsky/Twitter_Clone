@@ -29,7 +29,7 @@ export const AddTweet: React.FC<AddTweetProps> = ({ classes, maxRows }: AddTweet
     }
 
     return (
-        <div >
+        <div>
             <div className={classes.addFormBody}>
                 <Avatar
                     className={classes.avatar}
@@ -83,6 +83,6 @@ export const AddTweet: React.FC<AddTweetProps> = ({ classes, maxRows }: AddTweet
                 </div>
 
             </div>
-        </div >
+        </div>
     )
 }

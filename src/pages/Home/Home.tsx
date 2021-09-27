@@ -10,25 +10,28 @@ import { RightSide } from '../../components/RightSide';
 import { useHomeStyles } from './theme';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchTweets } from '../../store/ducks/tweets/actionCreators';
-import { selectTweets } from '../../store/ducks/tweets/selectors';
-
-// const TextLimitProgress = withStyles(()=> ({}))(CircularProgress)
+import { selectTweetsItems, selectIsTweetsLoading } from '../../store/ducks/tweets/selectors';
+import CircularProgress from '@material-ui/core/CircularProgress'
 
 export const Home = (): React.ReactElement => {
     const dispatch = useDispatch();
     const classes = useHomeStyles();
-    const tweets = useSelector(selectTweets)
+    const tweets = useSelector(selectTweetsItems)
+    const isLoading = useSelector(selectIsTweetsLoading)
 
-
-    useEffect(() => {
+    const handleTweetsFetch = () => {
         dispatch(fetchTweets());
-    }, [])
+    }
+    useEffect(() => {
+        handleTweetsFetch()
+    }, [dispatch])
 
     return (
         <Container className={classes.wrapper} maxWidth="lg">
             <Grid container spacing={3}>
                 <Grid item xs={2}>
                     <SideMenu
+                        handleTweetsFetch={handleTweetsFetch}
                         classes={classes}
                         userAvatar='https://www.urank.ru/news/topicimage/n1/256120/'
                         userFullName='Eugene Galinevksy'
@@ -47,19 +50,12 @@ export const Home = (): React.ReactElement => {
                                 <FlareIcon className={classes.sideMenuListItemIcon} />
                             </IconButton>
                         </Paper>
-                        <Paper>
+                        <Paper className={classes.wrapperaddForm} variant="outlined">
                             <div className={classes.addForm}>
                                 <AddTweet classes={classes} />
                             </div>
                         </Paper>
-                        <TweetComponent
-                            text='Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, libero ipsum nobis sint, quaerat repellendus tempore praesentium fugiat laudantium, eligendi nisi maxime molestias dicta voluptatibus officiis iste totam magnam. Culpa.'
-                            user={{
-                                fullName: 'Vito Andolini Corleone',
-                                userName: 'The_Godfather',
-                                avatarUrl: 'https://img.funpinpin.com/grem/uploads/2021/05/f34d9bd7fe4a6e3cac92a51a7a7bc9c4.jpg'
-                            }}
-                            classes={classes} />
+                        {isLoading ? (<div className={classes.tweetsCentred}><CircularProgress /></div>) : (tweets.map((tweet) => <TweetComponent key={tweet._id} classes={classes} text={tweet.text} user={tweet.user} />))}
                     </Paper>
                 </Grid>
                 <Grid item xs={3}>

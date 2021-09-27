@@ -21,13 +21,14 @@ import { ModalBlock } from '../Dialog';
 import { AddTweet } from '../AddTweet';
 
 interface SideMenuProps {
+    handleTweetsFetch: any;
     classes: ReturnType<typeof useHomeStyles>;
     userAvatar: string;
     userFullName: string;
     userName: string;
 }
 
-export const SideMenu: React.FC<SideMenuProps> = ({ classes, userFullName, userName, userAvatar }: SideMenuProps): React.ReactElement => {
+export const SideMenu: React.FC<SideMenuProps> = ({ classes, userFullName, userName, userAvatar, handleTweetsFetch }: SideMenuProps): React.ReactElement => {
     const [setVisibleAddTweet, setSetVisibleAddTweet] = useState<boolean>(false)
     const handleClickOpenAddTweet = () => {
         setSetVisibleAddTweet(true)
@@ -39,7 +40,7 @@ export const SideMenu: React.FC<SideMenuProps> = ({ classes, userFullName, userN
         <div className={classes.sideMenu}>
             <ul className={classes.sideMenuLIst}>
                 <li>
-                    <IconButton className={classes.logo} aria-label="" color="primary" >
+                    <IconButton onClick={handleTweetsFetch} className={classes.logo} aria-label="" color="primary" >
                         <TwitterIcon className={classes.logoIcon} color="primary" />
                     </IconButton>
                 </li>

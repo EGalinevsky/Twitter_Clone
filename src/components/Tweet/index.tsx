@@ -1,14 +1,8 @@
 import React from 'react';
 import {
-  Grid,
   Paper,
   IconButton,
   Typography,
-  makeStyles,
-  Container,
-  TextField,
-  withStyles,
-  createStyles,
 } from '@material-ui/core';
 import ChatBubbleOutlineRoundedIcon from '@material-ui/icons/ChatBubbleOutlineRounded';
 import RepeatRoundedIcon from '@material-ui/icons/RepeatRounded';
@@ -21,6 +15,7 @@ import { useHomeStyles } from '../../pages/Home/theme';
 interface TweetProps {
   text: string
   classes: ReturnType<typeof useHomeStyles>;
+  key: string;
   user: {
     fullName: string;
     userName: string;
