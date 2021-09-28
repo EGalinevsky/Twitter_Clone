@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Paper, Typography, InputAdornment } from '@material-ui/core'
 
 import SearchIcon from '@material-ui/icons/SearchOutlined';
@@ -9,6 +9,9 @@ import Avatar from '@material-ui/core/Avatar';
 import PersonAddIcon from '@material-ui/icons/PersonAddOutlined'
 import { useHomeStyles } from '../../pages/Home/theme';
 import { SearchTextField } from '../SearchTextField';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchTags } from '../../store/tags/actionCreators';
+import { selectTagsItems } from '../../store/tags/selectors';
 
 
 interface RightSideProps {
@@ -16,6 +19,16 @@ interface RightSideProps {
 }
 
 export const RightSide: React.FC<RightSideProps> = ({ classes }: RightSideProps): React.ReactElement => {
+
+    // const dispatch = useDispatch();
+    // const tags = useSelector(selectTagsItems)
+
+    // console.log(tags)
+    
+    // useEffect(() => {
+    //     dispatch(fetchTags())
+    // }, [dispatch])
+
     return (
         <div className={classes.rightSide}>
             <SearchTextField

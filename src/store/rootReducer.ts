@@ -1,6 +1,8 @@
 import { tweetsReducer } from './ducks/tweets/reducer';
 import {combineReducers} from 'redux'
+import { tagsReducer } from './tags/reducer';
 
 export const rootReducer = combineReducers({
-    tweets: tweetsReducer
+    tweets: tweetsReducer,
+    tags: tagsReducer
 })

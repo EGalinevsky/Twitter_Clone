@@ -9,21 +9,26 @@ import { AddTweet } from '../../components/AddTweet';
 import { RightSide } from '../../components/RightSide';
 import { useHomeStyles } from './theme';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchTweets } from '../../store/ducks/tweets/actionCreators';
 import { selectTweetsItems, selectIsTweetsLoading } from '../../store/ducks/tweets/selectors';
 import CircularProgress from '@material-ui/core/CircularProgress'
+import { fetchTweets } from '../../store/ducks/tweets/actionCreators';
+import { fetchTags } from '../../store/tags/actionCreators';
+import { selectTagsItems } from '../../store/tags/selectors';
 
 export const Home = (): React.ReactElement => {
     const dispatch = useDispatch();
     const classes = useHomeStyles();
-    const tweets = useSelector(selectTweetsItems)
+    const tweets = useSelector(selectTweetsItems);
+    const tags = useSelector(selectTagsItems);
     const isLoading = useSelector(selectIsTweetsLoading)
 
     const handleTweetsFetch = () => {
         dispatch(fetchTweets());
     }
+    console.log(tags)
     useEffect(() => {
         handleTweetsFetch()
+        dispatch(fetchTags());
     }, [dispatch])
 
     return (
@@ -59,7 +64,7 @@ export const Home = (): React.ReactElement => {
                     </Paper>
                 </Grid>
                 <Grid item xs={3}>
-                    <RightSide classes={classes} />
+                    <RightSide  classes={classes} />
                 </Grid>
             </Grid>
         </Container>

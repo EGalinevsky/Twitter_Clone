@@ -1,0 +1,123 @@
+{
+    "tweets":[
+        {
+            "_id": "61508e24bb698e3bd761bdbf",
+            "text": "Voluptate consectetur do quis eu. Qui quis exercitation mollit cillum reprehenderit cillum nostrud labore. Irure cillum elit esse amet aliquip nisi reprehenderit duis eu do sit fugiat anim consectetur. Veniam aute ex ad ex reprehenderit ipsum exercitation exercitation enim nulla. Aute velit adipisicing exercitation id consequat deserunt sit est irure ad tempor irure enim incididunt.",
+            "user": {
+              "fullName": "Robbins Parks",
+              "userName": "spence",
+              "avatarUrl": "https://source.unsplash.com/random/100x100?5"
+            }
+          },
+          {
+            "_id": "61508e24b484095433f9bce2",
+            "text": "Anim deserunt laborum proident amet aliqua qui ad enim nisi ullamco laborum pariatur fugiat culpa. Proident aute sint eiusmod veniam. Excepteur consequat laboris dolor ad incididunt eu consectetur do. Exercitation et aliquip sunt do sint ut. Labore enim velit velit aliquip esse est duis velit laboris velit consequat nostrud aliquip mollit.",
+            "user": {
+              "fullName": "Marshall Winters",
+              "userName": "mccall",
+              "avatarUrl": "https://source.unsplash.com/random/100x100?3"
+            }
+          },
+          {
+            "_id": "61508e24975a08c611814216",
+            "text": "Tempor magna anim labore velit dolor sint fugiat deserunt consequat consectetur laborum adipisicing. Ipsum esse veniam excepteur ullamco nostrud est excepteur. Sunt laboris occaecat cillum magna pariatur in culpa nisi velit excepteur ad. Cupidatat tempor anim irure reprehenderit velit adipisicing nisi eiusmod labore. Cupidatat incididunt culpa dolor adipisicing.",
+            "user": {
+              "fullName": "Reed Farrell",
+              "userName": "horton",
+              "avatarUrl": "https://source.unsplash.com/random/100x100?2"
+            }
+          },
+          {
+            "_id": "61508e24acde5df0c1424d6a",
+            "text": "Enim cillum pariatur laborum veniam sunt tempor dolor dolore amet et. Cupidatat sint dolore nisi sit commodo Lorem. Adipisicing ut pariatur ex proident cillum tempor mollit do eiusmod reprehenderit Lorem. Irure anim minim magna nostrud non aute eu ad non velit laborum Lorem cillum duis. Lorem commodo aliqua reprehenderit enim eiusmod mollit amet anim.",
+            "user": {
+              "fullName": "Lorraine Pittman",
+              "userName": "rich",
+              "avatarUrl": "https://source.unsplash.com/random/100x100?5"
+            }
+          },
+          {
+            "_id": "61508e2418edc11b3137eba9",
+            "text": "Ipsum est esse aliqua ex velit sunt duis excepteur et sint id aute pariatur est. Quis Lorem ad ut laboris enim minim sit elit enim reprehenderit Lorem. Ut ullamco dolor magna sunt reprehenderit nisi ipsum do mollit elit eiusmod. Sunt irure Lorem cillum sint officia. Reprehenderit id do dolor in ut.",
+            "user": {
+              "fullName": "Debbie Porter",
+              "userName": "faulkner",
+              "avatarUrl": "https://source.unsplash.com/random/100x100?1"
+            }
+          },
+          {
+            "_id": "61508e242b8cb7c6f80cbdd6",
+            "text": "Enim adipisicing laborum ex minim eiusmod adipisicing. Ex exercitation commodo ipsum mollit velit proident. Ullamco quis sit cillum consequat nostrud ea laborum. Nostrud culpa aliquip esse aute consequat adipisicing cupidatat magna in minim. Non reprehenderit duis commodo ex ex excepteur pariatur mollit veniam dolor mollit aliquip.",
+            "user": {
+              "fullName": "Rebekah Nolan",
+              "userName": "weber",
+              "avatarUrl": "https://source.unsplash.com/random/100x100?5"
+            }
+          },
+          {
+            "_id": "61508e241db542d89d58f6a6",
+            "text": "Anim tempor aute enim amet sint excepteur non laborum incididunt officia. Nisi do labore dolore eu in qui sit. Adipisicing dolore nulla do laborum voluptate ut est sint cillum sunt excepteur eiusmod ut. Voluptate aliquip officia ipsum culpa occaecat consequat ipsum excepteur anim laboris tempor. Irure aute enim aliqua commodo aliqua laboris dolore.",
+            "user": {
+              "fullName": "Rollins Schmidt",
+              "userName": "goodman",
+              "avatarUrl": "https://source.unsplash.com/random/100x100?1"
+            }
+          },
+          {
+            "_id": "61508e24dd2958917a9aca7e",
+            "text": "Laborum do ea eu magna consectetur laborum. Non dolor consectetur sit anim dolore magna est consequat. Laboris enim dolor laborum et non sunt adipisicing officia dolor aliqua. Labore aute ex esse ea esse aliqua cupidatat in ex eu magna magna. Qui in commodo non deserunt sunt pariatur.",
+            "user": {
+              "fullName": "Karina Mcgee",
+              "userName": "baxter",
+              "avatarUrl": "https://source.unsplash.com/random/100x100?3"
+            }
+          },
+          {
+            "_id": "61508e246501b0d2d204157a",
+            "text": "Nostrud labore est labore tempor ad. In veniam aliquip tempor consequat ea officia ullamco officia. Ipsum pariatur sit id velit duis consequat excepteur anim voluptate anim qui. Cillum excepteur cillum cupidatat sit voluptate non mollit occaecat sunt. Incididunt occaecat sit eiusmod elit ad ipsum ad labore ipsum dolore dolor.",
+            "user": {
+              "fullName": "Webster Wagner",
+              "userName": "knapp",
+              "avatarUrl": "https://source.unsplash.com/random/100x100?5"
+            }
+          },
+          {
+            "_id": "61508e24b91e98775e19737a",
+            "text": "Excepteur adipisicing adipisicing aliquip dolor reprehenderit sunt voluptate ad ea enim. Velit enim fugiat velit exercitation Lorem nulla aute. Pariatur aliquip duis et dolore incididunt consequat occaecat. Lorem exercitation excepteur sit nisi eiusmod pariatur ipsum velit. Dolore qui nisi consequat aliqua ut ad laborum id aliquip dolor anim.",
+            "user": {
+              "fullName": "Griffith Schultz",
+              "userName": "freeman",
+              "avatarUrl": "https://source.unsplash.com/random/100x100?1"
+            }
+          }
+    ],
+    "tags":[
+      {"name": "#esports", "count": 2548},
+      {"name": "#Bitcoin", "count": 3232},
+      {"name": "#Crypto", "count": 123},
+      {"name": "#Belarus", "count": 4312}
+  ],
+    "users": [
+      {
+        "fullName": "Marshall Winters",
+        "userName": "mccall",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?3"
+      },
+      {
+        "fullName": "Reed Farrell",
+        "userName": "horton",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?2"
+      },
+      {
+        "fullName": "Lorraine Pittman",
+        "userName": "rich",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?5"
+      }
+    ],
+    "user": {
+        "_id": "61508e24bb698e3bd761bdbf",
+        "fullName": "Eugene Galinevsky",
+        "userName": "EGalinevsky",
+        "avatarUrl": "https://pbs.twimg.com/profile_images/1222739270223499265/MNIydYF9_normal.jpg"
+    }
+}

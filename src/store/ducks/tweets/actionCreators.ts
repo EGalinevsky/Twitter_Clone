@@ -7,7 +7,7 @@ export enum TweetsActionsType {
     SET_LOADING_STATE = 'tweets/SET_LOADING_STATE',
 }
 
-export interface SetTweetsActionInterface extends Action<TweetsActionsType> {
+export interface SetTweetsActionInterface extends Action<TweetsActionsType> {    
     type: TweetsActionsType.SET_TWEETS;
     payload: TweetsState['items'];
 }
