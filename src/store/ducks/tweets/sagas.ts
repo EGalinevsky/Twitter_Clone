@@ -1,7 +1,6 @@
 import { TweetsApi } from './../../../services/api/tweetsApi';
 import { TweetsActionsType, setTweetsLoadingState, setTweets } from './actionCreators';
 import { call, takeEvery, put } from 'redux-saga/effects'
-import axios from 'axios'
 import { LoadingState, Tweet } from './contracts/state';
 
 // ...

@@ -19,6 +19,8 @@ import CreateIcon from '@material-ui/icons/Create';
 import { useHomeStyles } from '../../pages/Home/theme';
 import { ModalBlock } from '../Dialog';
 import { AddTweet } from '../AddTweet';
+import { Link } from 'react-router-dom';
+
 
 interface SideMenuProps {
     handleTweetsFetch: any;
@@ -40,9 +42,11 @@ export const SideMenu: React.FC<SideMenuProps> = ({ classes, userFullName, userN
         <div className={classes.sideMenu}>
             <ul className={classes.sideMenuLIst}>
                 <li>
-                    <IconButton onClick={handleTweetsFetch} className={classes.logo} aria-label="" color="primary" >
-                        <TwitterIcon className={classes.logoIcon} color="primary" />
-                    </IconButton>
+                    <Link to={'/home'}>
+                        <IconButton onClick={handleTweetsFetch} className={classes.logo} aria-label="" color="primary" >
+                            <TwitterIcon className={classes.logoIcon} color="primary" />
+                        </IconButton>
+                    </Link>
                 </li>
                 <li className={classes.sideMenuListItem}>
                     <div>

@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react'
-import { Grid, Paper, IconButton, Typography, makeStyles, Container, withStyles, TextField, InputAdornment } from '@material-ui/core'
+import { Grid, Paper, IconButton, Typography, Container } from '@material-ui/core'
 import FlareIcon from '@material-ui/icons/Flare';
-
-import { grey } from '@material-ui/core/colors'
 import { TweetComponent } from '../../components/Tweet';
 import { SideMenu } from '../../components/SideMenu';
 import { AddTweet } from '../../components/AddTweet';
@@ -12,23 +10,20 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectTweetsItems, selectIsTweetsLoading } from '../../store/ducks/tweets/selectors';
 import CircularProgress from '@material-ui/core/CircularProgress'
 import { fetchTweets } from '../../store/ducks/tweets/actionCreators';
-import { fetchTags } from '../../store/tags/actionCreators';
-import { selectTagsItems } from '../../store/tags/selectors';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
 
 export const Home = (): React.ReactElement => {
     const dispatch = useDispatch();
     const classes = useHomeStyles();
     const tweets = useSelector(selectTweetsItems);
-    const tags = useSelector(selectTagsItems);
     const isLoading = useSelector(selectIsTweetsLoading)
 
     const handleTweetsFetch = () => {
         dispatch(fetchTweets());
     }
-    console.log(tags)
     useEffect(() => {
         handleTweetsFetch()
-        dispatch(fetchTags());
     }, [dispatch])
 
     return (
@@ -60,14 +55,15 @@ export const Home = (): React.ReactElement => {
                                 <AddTweet classes={classes} />
                             </div>
                         </Paper>
-                        {isLoading ? (<div className={classes.tweetsCentred}><CircularProgress /></div>) : (tweets.map((tweet) => <TweetComponent key={tweet._id} classes={classes} text={tweet.text} user={tweet.user} />))}
+                        <Route path="/home" exact>
+                            {isLoading ? (<div className={classes.tweetsCentred}><CircularProgress /></div>) : (tweets.map((tweet) => <TweetComponent key={tweet._id} classes={classes} text={tweet.text} user={tweet.user} />))}
+                        </Route>
                     </Paper>
                 </Grid>
                 <Grid item xs={3}>
-                    <RightSide  classes={classes} />
+                    <RightSide classes={classes} />
                 </Grid>
             </Grid>
         </Container>
     )
 }
-

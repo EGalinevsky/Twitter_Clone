@@ -175,6 +175,10 @@ export const useHomeStyles = makeStyles((theme) => ({
         },
         '&:hover': {
             backgroundColor: '#edf3f6',
+        },
+        '& a':{
+            color: 'inherit',
+            textDecoration: 'none'
         }
     },
     wrapperaddForm:{
