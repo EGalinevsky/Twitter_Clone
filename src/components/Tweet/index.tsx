@@ -17,7 +17,7 @@ interface TweetProps {
   _id: string
   text: string
   classes: ReturnType<typeof useHomeStyles>;
-  key: string;
+  key?: string;
   user: {
     fullName: string;
     userName: string;
@@ -26,8 +26,6 @@ interface TweetProps {
 }
 
 export const TweetComponent: React.FC<TweetProps> = ({ text, user, classes, _id }: TweetProps): React.ReactElement => {
-
-
 
   return (
     <Link className={classes.tweetWrapper} to={`/home/tweet/${_id}`}>

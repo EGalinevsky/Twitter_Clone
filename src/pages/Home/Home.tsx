@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { Grid, Paper, IconButton, Typography, Container } from '@material-ui/core'
 import FlareIcon from '@material-ui/icons/Flare';
 import { TweetComponent } from '../../components/Tweet';
@@ -13,8 +13,6 @@ import { fetchTweets } from '../../store/ducks/tweets/actionCreators';
 import { BrowserRouter as Router, Route, useHistory } from "react-router-dom";
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { FullTweet } from './component/FullTweet';
-import { fetchTweetData } from '../../store/ducks/tweet/actionCreators';
-import { selectTweetData } from '../../store/ducks/tweet/selectors';
 
 
 export const Home = (): React.ReactElement => {
@@ -22,7 +20,6 @@ export const Home = (): React.ReactElement => {
     const classes = useHomeStyles();
     const tweets = useSelector(selectTweetsItems);
     const isLoading = useSelector(selectIsTweetsLoading)
-    const tweet = useSelector(selectTweetData)
     const history = useHistory();
     const handleClickBack = () => {
         history.goBack();

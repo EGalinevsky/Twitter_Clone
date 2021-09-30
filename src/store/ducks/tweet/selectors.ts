@@ -1,4 +1,3 @@
-import { createSelector } from 'reselect';
 import { RootState } from '../../store';
 import { LoadingState, TweetState } from './contracts/state';
 
