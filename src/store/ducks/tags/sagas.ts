@@ -1,7 +1,7 @@
-import { TagsApi } from './../../services/api/tagsApi';
 import { TagsActionsType, setTagsLoadingState, setTags } from './actionCreators';
 import { call, takeLatest, put } from 'redux-saga/effects'
 import { LoadingState, Tag } from './contracts/state';
+import { TagsApi } from '../../../services/api/tagsApi';
 
 // ...
 

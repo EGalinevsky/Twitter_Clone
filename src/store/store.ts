@@ -1,4 +1,5 @@
-import { TagsState } from './tags/contracts/state';
+import { TweetState } from './ducks/tweet/contracts/state';
+import { TagsState } from './ducks/tags/contracts/state';
 import { TweetsState } from './ducks/tweets/contracts/state';
 import { rootReducer } from './rootReducer';
 import {compose, createStore, applyMiddleware } from 'redux'
@@ -18,6 +19,7 @@ const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOO
 export interface RootState {
     tweets: TweetsState;
     tags: TagsState;
+    tweet: TweetState;
 }
 
 export const store = createStore(rootReducer, composeEnhancers(

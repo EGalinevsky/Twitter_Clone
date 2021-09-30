@@ -7,9 +7,9 @@ import Divider from '@material-ui/core/Divider/Divider'
 
 import { useDispatch, useSelector } from 'react-redux';
 import { useHomeStyles } from '../../../pages/Home/theme';
-import { fetchTags } from '../../../store/tags/actionCreators';
-import { selectIsTagsLoaded, selectTagsItems } from '../../../store/tags/selectors';
-import CircularProgress from '@material-ui/core/CircularProgress'
+import { fetchTags } from '../../../store/ducks/tags/actionCreators';
+import { selectIsTagsLoaded, selectTagsItems } from '../../../store/ducks/tags/selectors';
+// import CircularProgress from '@material-ui/core/CircularProgress'
 import { Link } from 'react-router-dom';
 
 
@@ -22,8 +22,6 @@ export const TagsActual: React.FC<TagsActualProps> = ({ classes }: TagsActualPro
     const dispatch = useDispatch();
     const tags = useSelector(selectTagsItems)
     const isLoadingTags = useSelector(selectIsTagsLoaded)
-
-    console.log(tags)
 
     useEffect(() => {
         dispatch(fetchTags())

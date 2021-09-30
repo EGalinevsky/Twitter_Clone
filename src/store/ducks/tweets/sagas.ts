@@ -13,7 +13,6 @@ export function* fetchTweetsRequest(): Generator<unknown, void, Tweet[]> {
   } catch (error) {
     yield put(setTweetsLoadingState(LoadingState.ERROR))
   } 
-  // console.log( yield call(TweetsApi.fetchTweets))
 }
 
 // Our watcher Saga: spawn a new incrementAsync task on each INCREMENT_ASYNC

@@ -50,7 +50,11 @@ export const useHomeStyles = makeStyles((theme) => ({
         marginLeft: 15,
     },
     sideMenuListItemIcon: {
-        fontSize: 26,
+        fontSize: 22,
+    },
+    arrowBack:{
+        fontSize: 22,
+        marginRight: 20,
     },
     tweetsWrapper: {
         borderRadius: 0,
@@ -64,7 +68,7 @@ export const useHomeStyles = makeStyles((theme) => ({
         width: 50,
         height: 50
     },
-    tweetsHeader: {
+    tweetsHeaderRoute: {
         borderLeft: '0',
         borderRight: '0',
         display: 'flex',
@@ -77,7 +81,11 @@ export const useHomeStyles = makeStyles((theme) => ({
             fontWeight: 700,
         }
     },
-    tweetsCentred:{
+    wrapperHeader: {
+        display: 'flex',
+        alignItems: 'center',
+    },
+    tweetsCentred: {
         marginTop: 100,
         textAlign: 'center'
     },
@@ -116,6 +124,10 @@ export const useHomeStyles = makeStyles((theme) => ({
         alignItems: 'center',
         justifyContent: 'space-between',
         width: 450,
+    },
+    tweetWrapper: {
+        color: 'inherit',
+        textDecoration: 'none'
     },
     btnTweet: {
         marginTop: 15
@@ -176,12 +188,12 @@ export const useHomeStyles = makeStyles((theme) => ({
         '&:hover': {
             backgroundColor: '#edf3f6',
         },
-        '& a':{
+        '& a': {
             color: 'inherit',
             textDecoration: 'none'
         }
     },
-    wrapperaddForm:{
+    wrapperaddForm: {
         borderTop: 0,
         borderLeft: 0,
         borderRight: 0,

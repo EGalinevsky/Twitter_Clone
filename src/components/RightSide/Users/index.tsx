@@ -1,5 +1,5 @@
 import React from 'react'
-import { Paper, Typography, InputAdornment } from '@material-ui/core'
+import { Paper, Typography } from '@material-ui/core'
 import { ListItemText, ListItemAvatar, List, Button } from '@material-ui/core';
 import Avatar from '@material-ui/core/Avatar';
 import ListItem from '@material-ui/core/ListItem/ListItem'

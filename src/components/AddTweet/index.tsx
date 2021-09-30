@@ -34,7 +34,7 @@ export const AddTweet: React.FC<AddTweetProps> = ({ classes, maxRows }: AddTweet
                 <Avatar
                     className={classes.avatar}
                     alt={'Аватарка пользователя UserAvatar'}
-                    src="https://www.urank.ru/news/topicimage/n1/256120/"
+                    src="https://media-exp1.licdn.com/dms/image/C4D03AQHqRRhVsnaziA/profile-displayphoto-shrink_100_100/0/1626063510328?e=1638403200&v=beta&t=J-K9QCPq5ZOSzQ6Zt9NOV-LrJNEBmeFdUMtmwIrtTyU"
                 />
                 <TextareaAutosize
                     onChange={handleChangeTextare}
