@@ -8,6 +8,9 @@ import CircularProgress from '@material-ui/core/CircularProgress/CircularProgres
 import { Button } from '@material-ui/core';
 import classNames from 'classnames'
 import { useHomeStyles } from '../../pages/Home/theme';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchAddTweet } from '../../store/ducks/tweets/actionCreators';
+
 
 interface AddTweetProps {
     classes: ReturnType<typeof useHomeStyles>;
@@ -15,6 +18,7 @@ interface AddTweetProps {
 }
 
 export const AddTweet: React.FC<AddTweetProps> = ({ classes, maxRows }: AddTweetProps): React.ReactElement => {
+    const dispatch = useDispatch();
     const [text, setText] = useState<string>('')
     const textLimitPercent = Math.round((text.length / 280) * 100)
 
@@ -25,7 +29,11 @@ export const AddTweet: React.FC<AddTweetProps> = ({ classes, maxRows }: AddTweet
     }
 
     const handleClickTweet = (): void => {
+        dispatch(fetchAddTweet(text))
         setText('')
+    }
+    
+    const handleClickAddTweet = ()=>{
     }
 
     return (
