@@ -48,6 +48,7 @@ export const setTweetsLoadingState = ( payload: LoadingState): setTweetsLoadingS
     type: TweetsActionsType.SET_LOADING_STATE,
     payload
 });
+
 export const fetchTweets = (): FetchTweetsActionInterface =>({
     type: TweetsActionsType.FETCH_TWEETS,
 });
@@ -56,3 +57,5 @@ export type TweetActions =
 | SetTweetsActionInterface  
 | setTweetsLoadingStateInterface  
 | FetchTweetsActionInterface
+| FetchAddTweetActionInterface
+| AddTweetActionInterface
